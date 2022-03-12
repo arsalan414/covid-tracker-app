@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/Header';
-import Covid from './components/Covid'
+import Covid from './components/Covid';
 
 function App() {
   return (
