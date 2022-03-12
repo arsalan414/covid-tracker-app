@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -32,9 +32,6 @@ const Div = styled(Paper)(() => ({
   margin: "20px",
   padding: "20px",
 }));
-
-
-// export const CountryData = createContext({selectedCountry})
 
 export default function Covid() {
 
@@ -76,17 +73,17 @@ export default function Covid() {
     datasets: [
       {
         label: 'Cases',
-        data:[selectedCountry.cases.toString()], 
+        data: [selectedCountry.cases && selectedCountry.cases.toString()],
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
       {
         label: 'Reacovered',
-        data: [selectedCountry.recovered.toString()],
+        data: [selectedCountry.recovered && selectedCountry.recovered.toString()],
         backgroundColor: 'rgba(206, 252, 168, 0.747)',
       },
       {
         label: 'Deaths',
-        data: [selectedCountry.deaths.toString()],
+        data: [selectedCountry.deaths && selectedCountry.deaths.toString()],
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
     ],
@@ -130,26 +127,8 @@ export default function Covid() {
           </Div>
         </Grid>
         <Grid item xs={6} md={4}>
-          <Div className="deaths covid-data">
-            <h1>DEATHS</h1>
-            {/* <p>{covidApi[0]["deaths"]}</p> */}
-            <h3>
-              {!selectedCountry ? "loading...": selectedCountry && selectedCountry.deaths}
-            </h3>
-            <div className="todays_deaths">
-              <h3>
-                last 24 hours:{" "}
-                <span>
-                  {!selectedCountry ? "loading...": selectedCountry && selectedCountry.todayDeaths}
-                </span>
-              </h3>
-            </div>
-          </Div>
-        </Grid>
-        <Grid item xs={6} md={4}>
           <Div className="recovered covid-data">
             <h1>RECOVERED</h1>
-            {/* <p>{covidApi[0]["recovered"]}</p> */}
             <h3>
               {!selectedCountry? "loading...": selectedCountry && selectedCountry.recovered}
             </h3>
@@ -163,6 +142,23 @@ export default function Covid() {
             </div>
           </Div>
         </Grid>
+        <Grid item xs={6} md={4}>
+          <Div className="deaths covid-data">
+            <h1>DEATHS</h1>
+            <h3>
+              {!selectedCountry ? "loading...": selectedCountry && selectedCountry.deaths}
+            </h3>
+            <div className="todays_deaths">
+              <h3>
+                last 24 hours:{" "}
+                <span>
+                  {!selectedCountry ? "loading...": selectedCountry && selectedCountry.todayDeaths}
+                </span>
+              </h3>
+            </div>
+          </Div>
+        </Grid>
+        
       </Grid>
       <Bar className='Barchart' options={options} data={data} />;
     </Box>

@@ -1,6 +1,9 @@
 .header {
   text-align: center;
 }
+/* *{
+  color: rgba(82, 80, 80, 0.966);
+} */
 .covid-data {
   /* width: 400px; */
   border-radius: 15px;
@@ -33,10 +36,10 @@
   padding: 5px;
 }
 .confirmed_cases {
-  background-color: rgba(198, 250, 250, 0.932) !important;
+  background-color: rgba(143, 207, 250, 0.705) !important;
 }
 .confirmed_cases > div {
-  background-color: rgba(92, 255, 255, 0.932) !important;
+  background-color: rgb(120, 196, 247) !important;
 }
 .deaths {
   background-color: rgba(252, 168, 168, 0.747) !important;
@@ -49,18 +52,6 @@
 }
 .recovered > div {
   background-color: rgba(164, 255, 89, 0.747) !important;
-}
-.tests {
-  background-color: rgba(139, 232, 248, 0.747) !important;
-}
-.tests > div {
-  background-color: rgba(0, 217, 255, 0.747) !important;
-}
-.critical_cases {
-  background-color: rgba(252, 209, 168, 0.747) !important;
-}
-.critical_cases > div {
-  background-color: rgba(255, 164, 79, 0.747) !important;
 }
 .country-container {
   display: flex;
