@@ -97,7 +97,7 @@ export default function Covid() {
     <Box sx={{ flexGrow: 1 }}>
       <div className="country-container">
         <select name="cars" id="cars" className="countries">
-          <option>select country </option>
+          <option onClick={() => setSelectedCountry({})}>select country </option>
           {covidApi.map((obj) => {
             return (
               <option onClick={() => setSelectedCountry(obj)}>
@@ -108,10 +108,10 @@ export default function Covid() {
         </select>
       </div>
 
-      <Grid container spacing={2}>
-        <Grid item xs={6} md={4}>
+      <Grid className="container" container spacing={2}>
+        <Grid item xs={8} md={4}>
           <Div className="confirmed_cases covid-data">
-            <h1>CONFIRMED CASES</h1>
+            <h1>CASES</h1>
             <h3>
               {!selectedCountry ? "loading..." : selectedCountry && selectedCountry.cases}
             </h3>
@@ -126,7 +126,7 @@ export default function Covid() {
             </div>
           </Div>
         </Grid>
-        <Grid item xs={6} md={4}>
+        <Grid item xs={8} md={4}>
           <Div className="recovered covid-data">
             <h1>RECOVERED</h1>
             <h3>
@@ -142,7 +142,7 @@ export default function Covid() {
             </div>
           </Div>
         </Grid>
-        <Grid item xs={6} md={4}>
+        <Grid item xs={8} md={4}>
           <Div className="deaths covid-data">
             <h1>DEATHS</h1>
             <h3>
